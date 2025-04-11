@@ -9,7 +9,7 @@ This Bash script automates the creation and initial management of SSH keys on ma
 * **Configuration File Support:** Reads settings from a configuration file (`~/.ssh-key-gen-config`) located in the user's home directory to streamline key generation.
 * **Interactive Prompts:** If no configuration file is found, or if the user chooses to enter data interactively, the script prompts for necessary information.
 * **Automated Remote Key Addition:** Automatically adds the public key to a remote server's `authorized_keys` file via SSH.
-* **Clipboard Copy:** Copies the public key to the clipboard (cross-platform support for macOS and Linux).
+* **Clipboard Copy:** Copies the public key to the clipboard.
 * **Date/Time Suffix:** Appends a date/time suffix to key filenames to prevent overwriting.
 * **Ed25519 Keys:** Generates secure Ed25519 keys.
 * **Passphrase Support:** Allows setting a passphrase for the SSH key.
@@ -20,7 +20,7 @@ This Bash script automates the creation and initial management of SSH keys on ma
 
 * macOS or Linux.
 * Bash or Zsh shell.
-* Optional: either `xclip` or `xsel` for clipboard copy in Linux.
+* Optional: either `xclip` or `xsel` to support clipboard copy in Linux.
 * Fields cannot contain double quotes.
 
 ## Usage

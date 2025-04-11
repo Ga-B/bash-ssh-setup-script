@@ -7,37 +7,7 @@ CONFIG_FILE="$HOME/.ssh-key-gen-config"
 # Log Buffer
 LOG_BUFFER=""
 
-# Function to log messages
-log() {
-  local level="$1"
-  local message="$2"
-  local timestamp=$(date +"%Y-%m-%d %H:%M:%S")
 
-  local log_message="[$timestamp] [$level] $message"
-
-  LOG_BUFFER="${LOG_BUFFER}${log_message}"$'\n'
-
-  # echo "$message"
-  if [[ "$level" == "ERROR" || "$level" == "WARNING" ]]; then
-    echo "$log_message"
-  fi
-}
-
-# Function to generate an SSH key
-generate_ssh_key() {
-  local filename="$1"
-  local comment="$2"
-  local passphrase="$3"
-
-  log INFO "Generating SSH key: $filename"
-  ssh-keygen -t ed25519 -C "$comment" -f "$filename" -N "$passphrase"
-  if [[ $? -eq 0 ]]; then
-    log INFO "SSH key generated: $filename"
-  else
-    log ERROR "Failed to generate SSH key: $filename"
-    return 1
-  fi
-}
 
 # Function to add the key to the ssh-agent
 add_ssh_key() {
